@@ -1,4 +1,4 @@
-# Firebase Studio
+# Erste Schritte -> Starten der Webseite
 
 Dies ist ein NextJS-Starter
 
