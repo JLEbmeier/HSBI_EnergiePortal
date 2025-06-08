@@ -1,12 +1,29 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
+
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8080';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /**
+   * Proxy API requests to the backend server.
+   * Uses BACKEND_URL from environment variables or defaults to localhost:8080.
+   */
+  async rewrites() {
+    return [
+      {
+        source: '/api_v1/:path*',
+        destination: `${BACKEND_URL}/api_v1/:path*`,
+      },
+      {
+        source: '/members/:path*',
+        destination: `${BACKEND_URL}/members/:path*`,
+      },
+    ];
+  },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: true, // TODO: Für Produktion auf false setzen
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // TODO: Für Produktion aktivieren
   },
   images: {
     remotePatterns: [
