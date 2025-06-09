@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, Leaf, Users, Zap } from "lucide-react";
+import { Header } from "@/components/layout/header";
 
 const benefits = [
   {
@@ -29,7 +30,8 @@ const benefits = [
 
 export default function MembershipPage() {
   return (
-    <div className="container py-12 md:py-16 lg:py-20">
+    <div className="flex flex-col items-center">
+      <Header /> 
       {/* Hero Section */}
       <section className="mb-16 text-center">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">

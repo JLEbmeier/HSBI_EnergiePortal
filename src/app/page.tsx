@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Zap, Users, TrendingUp } from "lucide-react";
 import { EnergyChart } from "@/components/energy-chart"; // Placeholder for chart component
+import { Header } from "@/components/layout/header";
 
 export default function Home() {
   return (
     <div className="flex flex-col items-center">
+      <Header />  
       {/* Hero Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-br from-primary/10 via-background to-background">
         <div className="container px-4 md:px-6">

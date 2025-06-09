@@ -58,33 +58,35 @@ const getColumns = (isAdmin: boolean): ColumnDef<PayrollEntry>[] => {
         }] : []),
         {
             accessorKey: "period",
-            header: "Zeitraum",
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                  Zeitraum
+                  </Button>
+            )
         },
         {
             accessorKey: "date",
-            header: "Datum",
-             cell: ({ row }) => {
-                const date = new Date(row.getValue("date"));
-                return date.toLocaleDateString('de-DE');
-            },
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Datum
+                </Button>
+            ),
         },
         {
             accessorKey: "gross",
-            header: "Brutto (€)",
-             cell: ({ row }) => {
-                const amount = parseFloat(row.getValue("gross"));
-                const formatted = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
-                return <div className="text-right font-medium">{formatted}</div>;
-            },
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Brutto (€)
+                </Button>
+            ),
         },
         {
             accessorKey: "net",
-            header: "Netto (€)",
-             cell: ({ row }) => {
-                const amount = parseFloat(row.getValue("net"));
-                const formatted = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
-                return <div className="text-right font-medium">{formatted}</div>;
-            },
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Netto (€)
+                </Button>
+            ),
         },
         {
             id: "actions",

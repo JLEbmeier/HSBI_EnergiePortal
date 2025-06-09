@@ -61,36 +61,66 @@ const getStatusColor = (status: string) => {
 export const columns: ColumnDef<Location>[] = [
   {
     accessorKey: "name",
-    header: ({ column }) => {
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Name
+      </Button>
+    ),
+  },
+  {
+    accessorKey: "type",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Typ
+      </Button>
+    ),
+  },
+  {
+    accessorKey: "status",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Status
+      </Button>
+    ),
+    cell: ({ row }) => {
+      const status = row.getValue("status") as string;
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-        </Button>
+        <Badge variant="outline" className={getStatusColor(status)}>
+          {status}
+        </Badge>
       );
     },
   },
   {
-    accessorKey: "type",
-    header: "Typ",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
-     cell: ({ row }) => {
-        const status = row.getValue("status") as string;
-        return <Badge variant="outline" className={getStatusColor(status)}>{status}</Badge>;
-     },
-  },
-  {
     accessorKey: "capacity",
-    header: "Kapazität",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Kapazität
+      </Button>
+    ),
   },
-   {
+  {
     accessorKey: "address",
-    header: "Adresse",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Adresse
+      </Button>
+    ),
   },
    {
     id: "actions",
