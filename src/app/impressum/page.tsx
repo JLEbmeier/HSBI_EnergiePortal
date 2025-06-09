@@ -1,6 +1,10 @@
+
+import { Header } from "@/components/layout/header";
+
 export default function ImpressumPage() {
   return (
-    <div className="container py-12 md:py-16 lg:py-20 max-w-3xl">
+<div className="flex flex-col items">
+      <Header /> 
       <h1 className="text-3xl font-bold tracking-tight mb-6">Impressum</h1>
 
       <h2 className="text-xl font-semibold mt-6 mb-2">Angaben gemäß § 5 TMG</h2>

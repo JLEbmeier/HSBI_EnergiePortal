@@ -4,8 +4,8 @@ import { Separator } from "@/components/ui/separator";
 export function Footer() {
   return (
     <footer className="mt-auto bg-muted/50">
-      <div className="container py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="container py-8 ml-[50px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <h3 className="text-lg font-semibold mb-2">HSBI Energieportal</h3>
             <p className="text-sm text-muted-foreground">

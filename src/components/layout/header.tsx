@@ -48,7 +48,7 @@ export function Header() {
         </nav>
         <div className="flex flex-1 items-center justify-end space-x-4">
           <Button asChild variant="secondary">
-            <Link href="/admin/login">Admin Login</Link>
+            <Link href="/admin-login">Admin Login</Link>
           </Button>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
@@ -87,7 +87,7 @@ export function Header() {
                   </Link>
                 ))}
                 <Button asChild variant="secondary" className="w-full" onClick={() => setIsOpen(false)}>
-                  <Link href="/admin/login">Admin Login</Link>
+                  <Link href="/admin-login">Admin Login</Link>
                 </Button>
               </nav>
             </SheetContent>

@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Header } from "@/components/layout/header";
+
 
 // Sample project data (replace with actual data source later)
 const projects = [
@@ -69,7 +71,8 @@ export default function ProjectsPage() {
 
 
   return (
-    <div className="container py-12 md:py-16 lg:py-20">
+    <div className="flex flex-col items-center">
+      <Header /> 
       <div className="mb-12 text-center">
         <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
           Unsere Energieprojekte
@@ -130,9 +133,11 @@ export default function ProjectsPage() {
                Hast du einen Vorschlag für ein neues Energieprojekt an der HSBI? Lass es uns wissen!
            </p>
            <Button size="lg">
-               Projekt vorschlagen
+               <Link href="/">Projekt vorschlagen</Link>
            </Button>
        </div>
     </div>
   );
 }
+
+/* bei Projekt vorschlagen zu einer PDf redirecten*/
