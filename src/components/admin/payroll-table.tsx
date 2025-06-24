@@ -58,11 +58,19 @@ const getColumns = (isAdmin: boolean): ColumnDef<PayrollEntry>[] => {
         }] : []),
         {
             accessorKey: "period",
-            header: "Zeitraum",
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Zeitraum
+                </Button>
+            ),
         },
         {
             accessorKey: "date",
-            header: "Datum",
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Datum
+                </Button>
+            ),
              cell: ({ row }) => {
                 const date = new Date(row.getValue("date"));
                 return date.toLocaleDateString('de-DE');
@@ -70,20 +78,28 @@ const getColumns = (isAdmin: boolean): ColumnDef<PayrollEntry>[] => {
         },
         {
             accessorKey: "gross",
-            header: "Brutto (€)",
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+                Brutto (€)
+                </Button>
+            ),
              cell: ({ row }) => {
                 const amount = parseFloat(row.getValue("gross"));
                 const formatted = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
-                return <div className="text-right font-medium">{formatted}</div>;
+                return <div className="text-center font-medium">{formatted}</div>;
             },
         },
         {
             accessorKey: "net",
-            header: "Netto (€)",
+            header: ({ column }: any) => (
+                <Button variant="ghost" onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}>
+              Netto (€)
+                </Button>  ),
+
              cell: ({ row }) => {
                 const amount = parseFloat(row.getValue("net"));
                 const formatted = new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(amount);
-                return <div className="text-right font-medium">{formatted}</div>;
+                return <div className="text-center font-medium">{formatted}</div>;
             },
         },
         {

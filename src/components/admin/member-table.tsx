@@ -68,7 +68,14 @@ export const columns: ColumnDef<Member>[] = [
   },
   {
     accessorKey: "joinDate",
-    header: "Beitrittsdatum",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        beitrittsdatum
+      </Button>
+    ),
     cell: ({ row }) => {
       const date = new Date(row.getValue("joinDate"));
       return date.toLocaleDateString("de-DE");
@@ -76,7 +83,14 @@ export const columns: ColumnDef<Member>[] = [
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Status
+      </Button>
+    ),
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
       return <Badge variant="outline" className={getStatusColor(status)}>{status}</Badge>;
@@ -84,7 +98,14 @@ export const columns: ColumnDef<Member>[] = [
   },
   {
     accessorKey: "shares",
-    header: "Anteile",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Anteile
+      </Button>
+    ),
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("shares"));
       return <div className="text-center font-medium">{amount}</div>;
@@ -92,7 +113,14 @@ export const columns: ColumnDef<Member>[] = [
   },
   {
     accessorKey: "email",
-    header: "E-Mail",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        E-mail
+      </Button>
+    ),
   },
   {
     id: "actions",

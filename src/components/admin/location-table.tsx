@@ -74,11 +74,29 @@ export const columns: ColumnDef<Location>[] = [
   },
   {
     accessorKey: "type",
-    header: "Typ",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Typ
+        </Button>
+      );
+    },
   },
   {
     accessorKey: "status",
-    header: "Status",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          status
+        </Button>
+      );
+    },
      cell: ({ row }) => {
         const status = row.getValue("status") as string;
         return <Badge variant="outline" className={getStatusColor(status)}>{status}</Badge>;
@@ -86,11 +104,29 @@ export const columns: ColumnDef<Location>[] = [
   },
   {
     accessorKey: "capacity",
-    header: "Kapazität",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Kapazität
+        </Button>
+      );
+    },
   },
    {
     accessorKey: "address",
-    header: "Adresse",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Adresse
+        </Button>
+      );
+    },
   },
    {
     id: "actions",

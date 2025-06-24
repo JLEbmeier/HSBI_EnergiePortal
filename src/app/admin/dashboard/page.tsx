@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Building, Zap, DollarSign } from "lucide-react";
 import { EnergyChart } from "@/components/energy-chart"; // Reuse chart component
-
 // Sample data - replace with real data fetching
 const dashboardStats = {
   activeMembers: 125,
