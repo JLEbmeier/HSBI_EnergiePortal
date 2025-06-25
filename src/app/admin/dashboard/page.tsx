@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Users, Building, Zap, DollarSign } from "lucide-react";
 import { EnergyChart } from "@/components/energy-chart"; // Reuse chart component
-
 // Sample data - replace with real data fetching
 const dashboardStats = {
   activeMembers: 125,
@@ -12,7 +11,7 @@ const dashboardStats = {
 
 export default function AdminDashboardPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-4">
       <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
 
       {/* Quick Stats */}

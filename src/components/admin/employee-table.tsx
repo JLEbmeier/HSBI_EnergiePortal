@@ -11,6 +11,7 @@ import {
   ColumnFiltersState,
   getFilteredRowModel,
 } from "@tanstack/react-table";
+
 import {
   Table,
   TableBody,
@@ -19,6 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal } from "lucide-react";
@@ -59,11 +61,25 @@ export const columns: ColumnDef<Employee>[] = [
   },
   {
     accessorKey: "role",
-    header: "Rolle",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Rolle
+      </Button>
+    ),
   },
   {
     accessorKey: "email",
-    header: "E-Mail",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        E-mail
+      </Button>
+    ),
   },
   {
     id: "actions",

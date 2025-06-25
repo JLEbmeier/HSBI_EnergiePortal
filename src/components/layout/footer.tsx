@@ -3,9 +3,9 @@ import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-muted/50">
-      <div className="container py-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="mt-auto bg-muted/50 w-full">
+      <div className="container mx-auto py-8 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
             <h3 className="text-lg font-semibold mb-2">HSBI Energieportal</h3>
             <p className="text-sm text-muted-foreground">
@@ -23,13 +23,13 @@ export function Footer() {
               <li><Link href="/datenschutz" className="text-sm hover:underline">Datenschutz</Link></li>
             </ul>
           </div>
-           <div>
+          <div>
             <h4 className="text-md font-semibold mb-2">Kontakt</h4>
-             <p className="text-sm text-muted-foreground">
-                HSBI Energiegenossenschaft<br/>
-                Artilleriestraße 9<br/>
-                32427 Minden<br/>
-                Email: <a href="mailto:info@hsbi-energie.de" className="hover:underline">info@hsbi-energie.de</a>
+            <p className="text-sm text-muted-foreground">
+              HSBI Energiegenossenschaft<br />
+              Artilleriestraße 9<br />
+              32427 Minden<br />
+              Email: <a href="mailto:info@hsbi-energie.de" className="hover:underline">info@hsbi-energie.de</a>
             </p>
           </div>
         </div>
@@ -41,3 +41,5 @@ export function Footer() {
     </footer>
   );
 }
+
+

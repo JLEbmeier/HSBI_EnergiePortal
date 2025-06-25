@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import {
   SidebarProvider,
@@ -31,17 +33,24 @@ export default function AdminLayout({
 }>) {
   // TODO: Add authentication check here. If not logged in, redirect to /admin/login.
   // This is a placeholder layout. Authentication needs to be implemented.
-
+  const handleLogout = () => {
+    window.location.href = "/";
+  };
   return (
-    <SidebarProvider defaultOpen>
+  <SidebarProvider defaultOpen>
+    <div className="flex h-screen w-full overflow-hidden">
       <Sidebar collapsible="icon">
         <SidebarHeader className="items-center justify-between">
-           <Link href="/admin/dashboard" className="flex items-center gap-2 font-semibold">
-                <Sun className="h-5 w-5 text-primary" />
-                <span>HSBI Admin</span>
-            </Link>
+          <Link
+            href="/admin/dashboard"
+            className="flex items-center gap-2 font-semibold"
+          >
+            <Sun className="h-5 w-5 text-primary" />
+            <span>HSBI Admin</span>
+          </Link>
           <SidebarTrigger className="hidden md:flex" />
         </SidebarHeader>
+
         <SidebarContent>
           <SidebarMenu>
             <SidebarMenuItem>
@@ -52,7 +61,7 @@ export default function AdminLayout({
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
-             <SidebarMenuItem>
+            <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="Mitarbeiter">
                 <Link href="/admin/employees">
                   <Briefcase />
@@ -76,7 +85,7 @@ export default function AdminLayout({
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
-             <SidebarMenuItem>
+            <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="Gehaltsabrechnungen">
                 <Link href="/admin/payroll">
                   <FileText />
@@ -86,27 +95,34 @@ export default function AdminLayout({
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarContent>
+
         <SidebarFooter>
-           <SidebarMenu>
+          <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip="Logout">
-                 {/* Add logout functionality here */}
-                 <Button variant="ghost" className="w-full justify-start">
-                    <LogOut />
-                    <span>Logout</span>
-                 </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start"
+                  onClick={handleLogout}
+                >
+                  <LogOut />
+                  <span>Logout</span>
+                </Button>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarFooter>
       </Sidebar>
-       <SidebarInset>
-           {/* Admin Header could go here if needed inside the main content area */}
-           {/* <AdminHeader /> */}
-          <div className="p-4 md:p-6 lg:p-8">
-            {children}
-          </div>
-       </SidebarInset>
-    </SidebarProvider>
-  );
+
+      {/* Main content area: header + page */}
+      <div className="flex flex-col flex-1 overflow-hidden">
+        <AdminHeader />
+        <main className="flex-1 overflow-auto p-4 md:p-6 lg:p-8">
+          {children}
+        </main>
+      </div>
+    </div>
+
+  </SidebarProvider>
+);
 }
