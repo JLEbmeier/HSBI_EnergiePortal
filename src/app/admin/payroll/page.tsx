@@ -1,48 +1,71 @@
+"use client";
+
+import * as React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Upload } from "lucide-react";
 import { PayrollTable } from "@/components/admin/payroll-table"; // Assume this component exists
 
+interface Payroll {}
+  id: String;
+  employeeId: String;
+  employeeName: String;
+  period: String;
+  date: String;
+  gross: Number;
+  net: Number;
+  fileUrl: String;
+
 export default function AdminPayrollPage() {
-   // Placeholder data - Fetch real data based on logged-in user in implementation
-   // Admins might see all, regular employees only their own.
-    const payrollData = [
-        { id: "pay001", employeeId: "emp001", employeeName: "Anna Schmidt", period: "2024-06", date: "2024-06-28", gross: 3500, net: 2450.50, fileUrl: "/documents/payroll/anna_schmidt_2024_06.pdf"},
-        { id: "pay002", employeeId: "emp002", employeeName: "Ben Weber", period: "2024-06", date: "2024-06-28", gross: 2800, net: 1980.20, fileUrl: "/documents/payroll/ben_weber_2024_06.pdf"},
-        { id: "pay003", employeeId: "emp001", employeeName: "Anna Schmidt", period: "2024-05", date: "2024-05-30", gross: 3500, net: 2450.50, fileUrl: "/documents/payroll/anna_schmidt_2024_05.pdf"},
-        { id: "pay004", employeeId: "emp003", employeeName: "Clara Becker", period: "2024-06", date: "2024-06-28", gross: 2500, net: 1800.75, fileUrl: "/documents/payroll/clara_becker_2024_06.pdf"},
-    ];
+  const [location, setPayroll] = React.useState<Payroll[]>([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState<string | null>(null);
+  const [newLocation, setNewPayroll] = React.useState({ employeeId: "", employeename: "", period: "", date: "", gross: "", net: "", fileUrl: ""});
 
-    // TODO: Determine user role (admin vs employee)
-    const isAdmin = true; // Replace with actual role check
-    const loggedInEmployeeId = "emp001"; // Replace with actual logged-in user ID if not admin
-
-    const filteredPayrollData = isAdmin ? payrollData : payrollData.filter(p => p.employeeId === loggedInEmployeeId);
+  // Fetch Locations from backend
+    React.useEffect(() => {
+      const fetchPayroll = async () => {
+        try {
+          const response = await fetch("/"); //fehlende adresse für gehaltsabrechnungen
+          if (!response.ok) throw new Error("Failed to fetch Payroll");
+          const data = await response.json();
+          // Map backend data to frontend interface
+          const mappedData = data.map((pay: any) => ({
+            id: pay.id.toString(),
+            employeeId: pay.payEmployeeId,
+            employeename: pay.payEmployeename,
+            period: pay.payPeriod,
+            date: pay.paydate,
+            gross: pay.payGross,
+            net: pay.payNet,
+            fileUrl: pay.payFileUrl,
+          }));
+          setPayroll(mappedData);
+          setLoading(false);
+        } catch (err) {
+          setError("Error loading Payroll");
+          setLoading(false);
+        }
+      };
+      fetchPayroll();
+    }, []);
+  
 
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
          <h1 className="text-3xl font-bold tracking-tight">Gehaltsabrechnungen</h1>
-         {isAdmin && (
              <Button variant="outline">
                  <Upload className="mr-2 h-4 w-4" />
                  Abrechnungen hochladen
              </Button>
-         )}
        </div>
 
       <Card>
-        <CardHeader>
-          <CardTitle>{isAdmin ? "Alle Abrechnungen" : "Meine Abrechnungen"}</CardTitle>
-          <CardDescription>
-            {isAdmin
-              ? "Übersicht und Verwaltung aller Gehaltsabrechnungen."
-              : "Zugriff auf deine persönlichen Gehaltsabrechnungen."}
-          </CardDescription>
-        </CardHeader>
+      
         <CardContent>
             {/* Payroll Table Component */}
-            <PayrollTable data={filteredPayrollData} isAdmin={isAdmin} />
+            <PayrollTable data={0}/>  
         </CardContent>
       </Card>
 

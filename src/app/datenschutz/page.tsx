@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/footer";
 
 export default function DatenschutzPage() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center pb-4">
       <Header /> 
         <div className="container py-12 md:py-16 lg:py-20 max-w-3xl">
           <h1 className="text-3xl font-bold tracking-tight mb-6">Datenschutzerklärung</h1>
@@ -100,19 +100,19 @@ export default function DatenschutzPage() {
                     Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.
                 </p>
 
-                <h3 className="text-lg font-semibold mt-4 mb-1">Kontaktformular / E-Mail-Kontakt</h3>
+                <h3 className="text-lg font-semibold mt-4 mb-4">Kontaktformular / E-Mail-Kontakt</h3>
                 <p className="text-sm mb-3">
                     Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular bzw. Ihrer E-Mail inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.<br/>
                     Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) sofern diese abgefragt wurde; die Einwilligung ist jederzeit widerrufbar.<br/>
                     Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
                 </p>
 
-            <h2 className="text-xl font-semibold mt-6 mb-2">5. Mitglieder- und Mitarbeiterdaten</h2>
-              <h3 className="text-lg font-semibold mt-4 mb-1">Verarbeitung von Mitgliederdaten</h3>
+            <h2 className="text-xl font-semibold mt-6 mb-4">5. Mitglieder- und Mitarbeiterdaten</h2>
+              <h3 className="text-lg font-semibold mt-4 mb-4">Verarbeitung von Mitgliederdaten</h3>
                 <p className="text-sm mb-3">
                     Im Rahmen der Mitgliedschaft erheben und verarbeiten wir personenbezogene Daten (z. B. Name, Adresse, Kontaktdaten, Bankverbindung, erworbene Anteile) zur Erfüllung der genossenschaftlichen Pflichten und zur Verwaltung der Mitgliedschaft. Dies erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) sowie zur Erfüllung rechtlicher Verpflichtungen (Art. 6 Abs. 1 lit. c DSGVO, z. B. Genossenschaftsgesetz). Die Daten werden gelöscht, sobald sie für den Zweck ihrer Verarbeitung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
                 </p>
-            <h3 className="text-lg font-semibold mt-4 mb-1">Verarbeitung von Mitarbeiterdaten und Gehaltsabrechnungen</h3>
+            <h3 className="text-lg font-semibold mt-4 mb-4">Verarbeitung von Mitarbeiterdaten und Gehaltsabrechnungen</h3>
                 <p className="text-sm mb-3">
                     Im Rahmen des Beschäftigungsverhältnisses und zur Durchführung der Gehaltsabrechnung verarbeiten wir personenbezogene Daten unserer Mitarbeiter (z. B. Name, Adresse, Kontaktdaten, Bankverbindung, Sozialversicherungsnummer, Steuerdaten, Arbeitszeiten, Gehaltsdaten). Dies erfolgt zur Anbahnung, Durchführung und Beendigung des Beschäftigungsverhältnisses gemäß § 26 BDSG sowie zur Erfüllung rechtlicher Verpflichtungen (Art. 6 Abs. 1 lit. c DSGVO, z. B. Steuer-, Sozialversicherungsrecht).<br/>
                     Der Zugriff auf Gehaltsabrechnungen im internen Bereich ist durch geeignete technische und organisatorische Maßnahmen geschützt und nur für den jeweiligen Mitarbeiter bzw. berechtigte Personen (z. B. Personalabteilung) möglich. Die Daten werden gemäß den gesetzlichen Aufbewahrungsfristen gespeichert und anschließend gelöscht.
