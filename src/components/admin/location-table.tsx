@@ -93,7 +93,7 @@ export const columns: ColumnDef<Location>[] = [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          status
+          Status
         </Button>
       );
     },

@@ -11,7 +11,7 @@ const dashboardStats = {
 
 export default function AdminDashboardPage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 pb-4">
       <h1 className="text-3xl font-bold tracking-tight">Admin Dashboard</h1>
 
       {/* Quick Stats */}

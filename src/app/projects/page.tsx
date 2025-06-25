@@ -69,76 +69,93 @@ export default function ProjectsPage() {
     }
   };
 
-
   return (
     <div className="flex flex-col items-center">
-      <Header /> 
-      <div className="mb-12 text-center">
-        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
-          Unsere Energieprojekte
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          Entdecke die Solarenergieprojekte, mit denen wir die HSBI nachhaltiger machen.
-        </p>
+      {/* Top part - full width with padding, left-aligned */}
+      <div className="w-full max-w-screen-xl px-6 md:px-12">
+        <Header />
+        <div className="mb-12 text-left">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-primary">
+            Unsere Energieprojekte
+          </h1>
+          <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg">
+            Entdecke die Solarenergieprojekte, mit denen wir die HSBI nachhaltiger machen.
+          </p>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-        {projects.map((project) => (
-          <Card key={project.id} className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="relative w-full h-48">
-              <Image
-                src={project.imageUrl}
-                alt={`Bild von ${project.title}`}
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint={project.aiHint}
-              />
-               <Badge variant="outline" className={`absolute top-2 right-2 ${getStatusColor(project.status)}`}>
-                 {project.status}
-               </Badge>
-            </div>
-            <CardHeader>
-              <CardTitle>{project.title}</CardTitle>
-              <CardDescription className="text-sm pt-1">Kapazität: {project.capacity} | Start: {new Date(project.startDate).toLocaleDateString('de-DE')}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow">
-              <p className="text-sm text-muted-foreground line-clamp-3">{project.description}</p>
-            </CardContent>
-            <CardFooter className="flex flex-col items-start gap-2 pt-4 border-t mt-auto">
-              {project.status !== "In Betrieb" && (
-                 <>
+      {/* Centered content with more horizontal padding */}
+      <div className="w-full max-w-screen-xl px-6 md:px-12 pb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {projects.map((project) => (
+            <Card
+              key={project.id}
+              className="flex flex-col overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <div className="relative w-full h-48">
+                <Image
+                  src={project.imageUrl}
+                  alt={`Bild von ${project.title}`}
+                  layout="fill"
+                  objectFit="cover"
+                  data-ai-hint={project.aiHint}
+                />
+                <Badge
+                  variant="outline"
+                  className={`absolute top-2 right-2 ${getStatusColor(project.status)}`}
+                >
+                  {project.status}
+                </Badge>
+              </div>
+              <CardHeader>
+                <CardTitle>{project.title}</CardTitle>
+                <CardDescription className="text-sm pt-1">
+                  Kapazität: {project.capacity} | Start:{" "}
+                  {new Date(project.startDate).toLocaleDateString("de-DE")}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <p className="text-sm text-muted-foreground line-clamp-3">{project.description}</p>
+              </CardContent>
+              <CardFooter className="flex flex-col items-start gap-2 pt-4 border-t mt-auto">
+                {project.status !== "In Betrieb" && (
+                  <>
                     <div className="w-full">
-                        <label className="text-xs text-muted-foreground mb-1 block">Finanzierungsfortschritt</label>
-                         <Progress value={project.fundingProgress} aria-label={`${project.fundingProgress}% finanziert`} />
-                         <span className="text-xs text-muted-foreground mt-1 block">{project.fundingProgress}%</span>
+                      <label className="text-xs text-muted-foreground mb-1 block">
+                        Finanzierungsfortschritt
+                      </label>
+                      <Progress value={project.fundingProgress} aria-label={`${project.fundingProgress}% finanziert`} />
+                      <span className="text-xs text-muted-foreground mt-1 block">
+                        {project.fundingProgress}%
+                      </span>
                     </div>
                     <Button size="sm" variant="outline" asChild>
-                        <Link href={`/projects/${project.id}/support`}>Projekt unterstützen</Link>
+                      <Link href={`/projects/${project.id}/support`}>Projekt unterstützen</Link>
                     </Button>
-                 </>
-              )}
-               {project.status === "In Betrieb" && (
-                   <Button size="sm" variant="link" className="p-0 h-auto" asChild>
-                       <Link href={`/energy-data?project=${project.id}`}>Live-Daten anzeigen &rarr;</Link>
-                   </Button>
-               )}
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+                  </>
+                )}
+                {project.status === "In Betrieb" && (
+                  <Button size="sm" variant="link" className="p-0 h-auto" asChild>
+                    <Link href={`/energy-data?project=${project.id}`}>
+                      Live-Daten anzeigen &rarr;
+                    </Link>
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
 
-       <div className="mt-16 text-center">
-           <h2 className="text-2xl font-semibold mb-4">Du hast eine Projektidee?</h2>
-           <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
-               Hast du einen Vorschlag für ein neues Energieprojekt an der HSBI? Lass es uns wissen!
-           </p>
-           <Button size="lg">
-               <Link href="/">Projekt vorschlagen</Link>
-           </Button>
-       </div>
+        <div className="mt-16 text-center max-w-lg mx-auto">
+          <h2 className="text-2xl font-semibold mb-4">Du hast eine Projektidee?</h2>
+          <p className="text-muted-foreground mb-6">
+            Hast du einen Vorschlag für ein neues Energieprojekt an der HSBI? Lass es uns wissen!
+          </p>
+          <Button size="lg">
+            <Link href="/">Projekt vorschlagen</Link>
+          </Button>
+        </div>
+      </div>
     </div>
-    
   );
 }
-
-/* bei Projekt vorschlagen zu einer PDf redirecten*/

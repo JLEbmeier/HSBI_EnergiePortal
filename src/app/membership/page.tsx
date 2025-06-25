@@ -104,45 +104,46 @@ export default function MembershipPage() {
          </p>
       </section>
 
-       {/* FAQ Section */}
-      <section>
+      {/* FAQ Section */}
+      <section className="mb-2.5">
         <h2 className="text-2xl font-semibold tracking-tight text-center mb-8 md:text-3xl">
           Häufig gestellte Fragen (FAQ)
         </h2>
         {/* Replace with Accordion component later if needed */}
         <div className="space-y-4 max-w-3xl mx-auto">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="text-base">Was kostet die Mitgliedschaft?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                        Die Mitgliedschaft erfordert den Erwerb von mindestens einem Genossenschaftsanteil. Der Wert eines Anteils beträgt aktuell 100 €. Dieser Betrag wird bei Austritt aus der Genossenschaft (gemäß Satzung) zurückgezahlt.
-                    </p>
-                </CardContent>
-            </Card>
-             <Card>
-                <CardHeader>
-                    <CardTitle className="text-base">Muss ich Student an der HSBI sein?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                        Die Genossenschaft richtet sich primär an Studierende und Mitarbeiter der HSBI, steht aber grundsätzlich allen offen, die unsere Ziele unterstützen möchten.
-                    </p>
-                </CardContent>
-            </Card>
-             <Card>
-                <CardHeader>
-                    <CardTitle className="text-base">Wie kann ich mich aktiv einbringen?</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                       Es gibt viele Möglichkeiten! Du kannst an Mitgliederversammlungen teilnehmen, dich in Arbeitsgruppen engagieren oder bei Projekten mithelfen. Sprich uns einfach an!
-                    </p>
-                </CardContent>
-            </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Was kostet die Mitgliedschaft?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Die Mitgliedschaft erfordert den Erwerb von mindestens einem Genossenschaftsanteil. Der Wert eines Anteils beträgt aktuell 100 €. Dieser Betrag wird bei Austritt aus der Genossenschaft (gemäß Satzung) zurückgezahlt.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Muss ich Student an der HSBI sein?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Die Genossenschaft richtet sich primär an Studierende und Mitarbeiter der HSBI, steht aber grundsätzlich allen offen, die unsere Ziele unterstützen möchten.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-base">Wie kann ich mich aktiv einbringen?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Es gibt viele Möglichkeiten! Du kannst an Mitgliederversammlungen teilnehmen, dich in Arbeitsgruppen engagieren oder bei Projekten mithelfen. Sprich uns einfach an!
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
+
 
     </div>
   );

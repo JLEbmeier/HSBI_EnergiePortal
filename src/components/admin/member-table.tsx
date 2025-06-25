@@ -127,6 +127,18 @@ export const columns: ColumnDef<Member>[] = [
     cell: ({ row, table }) => {
       const member = row.original;
       const setMembers = table.options.meta?.setMembers as React.Dispatch<React.SetStateAction<Member[]>>;
+      
+      const handleDelete = async () => {
+        try {
+          const response = await fetch(`/members/${member.id}`, {
+            method: "DELETE",
+          });
+          if (!response.ok) throw new Error("Failed to delete member");
+          setMembers((prev) => prev.filter((emp) => mem.id !== member.id));
+        } catch (err) {
+          console.error("Error deleting Member:", err);
+        }
+      };
 
       const handleEdit = async (updatedMember: Member) => {
         try {
